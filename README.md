@@ -14,42 +14,75 @@ This repository contains a local working copy of **nopCommerce 4.90** for testin
 
 ## 🚀 How to Run Locally
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/<your-username>/nopCommerce-local.git
-   cd nopCommerce-local
-Restore and build
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/<your-username>/nopCommerce-local.git
+cd nopCommerce-local
+```
 
-bash
-Copy code
+---
+
+### 2️⃣ Restore and build the project
+```bash
 dotnet restore .\src\Presentation\Nop.Web\Nop.Web.csproj
 dotnet build .\src\Presentation\Nop.Web\Nop.Web.csproj
-Run the application
+```
 
-bash
-Copy code
+---
+
+### 3️⃣ Run the application
+```bash
 cd .\src\Presentation\Nop.Web
 dotnet run
-Open in browser
+```
 
-arduino
-Copy code
+You’ll see something like:
+```
+Now listening on: http://localhost:59580
+Now listening on: https://localhost:59579
+```
+
+---
+
+### 4️⃣ Open the site in your browser
+Go to:
+```
 http://localhost:59580
-The nopCommerce installation page will appear.
+```
 
-Complete installation
+You’ll see the nopCommerce installation page.
 
-Choose SQL Server (LocalDB) or your own SQL instance.
+---
 
-Tick Create database if it does not exist.
+### 5️⃣ Complete installation
+- **Database:** choose **SQL Server (LocalDB)** or your own SQL instance.  
+- **Check:** “Create database if it does not exist”.  
+- **Set:** Admin email and password.  
+- Click **Install** and wait until the site restarts.
 
-Set admin email and password.
+---
 
-Click Install and wait until the site restarts.
-
-Access Admin Panel
-
-bash
-Copy code
+### 6️⃣ Access the Admin Panel
+Once the installation finishes, open:
+```
 http://localhost:59580/admin
-Log in with the credentials you created during installation.
+```
+
+Then log in using the **admin email and password** you just created.
+
+---
+
+## 🧪 For Automation Testers
+Use the running base URL (e.g. `http://localhost:59580`) as your `baseUrl` in your automation framework.
+
+---
+
+## 🧰 Notes
+- Stop the server anytime with **Ctrl + C**.  
+- To run again later:
+  ```bash
+  cd src/Presentation/Nop.Web
+  dotnet run
+  ```
+- Database and configuration are stored in your local SQL instance.
+- This setup is mainly used for testing and integration with the automation project.
